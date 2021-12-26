@@ -1,0 +1,13 @@
+name: motorcycles-prices
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - scikit-learn
+  - ipykernel
+  - seaborn
+  - matplotlib
+  - python=3.6
+  - xgboost
+prefix: /home/alexrods/anaconda3/envs/motorcycles-prices
