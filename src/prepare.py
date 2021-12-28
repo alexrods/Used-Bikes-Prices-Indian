@@ -5,8 +5,6 @@ import numpy as np
 from io import StringIO
 import sys
 import logging
-from sklearn.preprocessing import OneHotEncoder, PowerTransformer
-from sklearn.compose import ColumnTransformer
 
 
 logging.basicConfig(
@@ -125,24 +123,8 @@ bikes_new = bikes_new[bikes_new["brand_name"].isin(idx)]
 
 bikes_new = bikes_new[bikes_new['kms_driven'] < bikes_new['kms_driven'].quantile(0.975)]
 bikes_new = bikes_new[bikes_new['price'] < 3000000]
+bikes_new.to_csv('../data/processed/bikes_processed.csv', index=False)
 
-encoder = OneHotEncoder(handle_unknown='ignore')
-cat_features = ['brand_name', 'model_name']
 
-num_features = ['motor_size', 'years', 'kms_driven',
-                'mileage', 'power']
-num_transformer = PowerTransformer()
-
-column_transform = ColumnTransformer(
-    transformers=[
-        ("num", num_transformer, num_features),
-        ("cat", encoder, cat_features)
-    ]
-)
-
-bikes_transform = column_transform.fit_transform(bikes_new)
-bikes_processed = pd.DataFrame(bikes_transform)
-bikes_processed.drop(['price'], axis=1, inplace=True)
-bikes_processed.to_csv('../data/processed/bikes_processed.csv', index=False)
 
 
