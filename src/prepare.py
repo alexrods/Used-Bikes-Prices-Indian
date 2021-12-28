@@ -144,3 +144,5 @@ bikes_transform = column_transform.fit_transform(bikes_new)
 bikes_processed = pd.DataFrame(bikes_transform)
 bikes_processed.drop(['price'], axis=1, inplace=True)
 bikes_processed.to_csv('../data/processed/bikes_processed.csv', index=False)
+
+
