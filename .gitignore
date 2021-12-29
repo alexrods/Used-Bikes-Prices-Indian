@@ -67,5 +67,7 @@ target/
 # ipynb checkpoints
 .ipynb_checkpoints
 
-# JSON Files
+# JSON, CSV, PKL Files
 *.json
+*.csv
+*.pkl
