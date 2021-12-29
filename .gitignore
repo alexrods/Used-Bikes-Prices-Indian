@@ -62,7 +62,10 @@ target/
 .python-version
 
 # exclude data from source control by default
-/data/
+#/data/
 
 # ipynb checkpoints
 .ipynb_checkpoints
+
+# JSON Files
+.json
