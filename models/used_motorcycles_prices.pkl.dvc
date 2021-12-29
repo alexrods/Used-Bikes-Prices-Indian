@@ -1,0 +1,4 @@
+outs:
+- md5: 87777a28a87d824fa0dff9cf3ede6051
+  size: 136684
+  path: used_motorcycles_prices.pkl
