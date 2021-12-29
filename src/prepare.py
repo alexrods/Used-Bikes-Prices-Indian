@@ -1,10 +1,10 @@
 import re
-from dvc import api
-import pandas as pd
-import numpy as np
-from io import StringIO
 import sys
 import logging
+import numpy as np
+import pandas as pd
+from dvc import api
+from io import StringIO
 
 
 logging.basicConfig(
@@ -16,9 +16,9 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-logging.info('Fetching data...')
+logging.info('Fetching data...\n')
 
-bikes_data_path = api.read('../data/raw/used-bike-price-in-india/bikes.csv')
+bikes_data_path = api.read('data/raw/bikes.csv', remote='dataset-track')
 
 bikes_data = pd.read_csv(StringIO(bikes_data_path))
 
@@ -115,7 +115,8 @@ power['power'] = power['power'].astype(float)
 
 bikes_data['years'] = 2021 - bikes_data['model_year']
 
-bikes_new = pd.concat([brand_name, model_name_col, motor_size_col, kms_driven, mileage, bikes_data['owner'], power, bikes_data['years']], axis=1)
+bikes_new = pd.concat([brand_name, model_name_col, motor_size_col, kms_driven, mileage, 
+                       bikes_data['owner'], power, bikes_data['years'], bikes_data['price']], axis=1)
 bikes_new.dropna(inplace=True)
 
 idx = bikes_new["brand_name"].value_counts()[bikes_new["brand_name"].value_counts() > 2].index.tolist()
@@ -123,8 +124,8 @@ bikes_new = bikes_new[bikes_new["brand_name"].isin(idx)]
 
 bikes_new = bikes_new[bikes_new['kms_driven'] < bikes_new['kms_driven'].quantile(0.975)]
 bikes_new = bikes_new[bikes_new['price'] < 3000000]
-bikes_new.to_csv('../data/processed/bikes_processed.csv', index=False)
 
+bikes_new.to_csv('data/processed/bikes_processed.csv', index=False)
 
-
+logger.info("Data Fetched and prepared...")
 
