@@ -1,0 +1,14 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    outs:
+    - path: data/processed/bikes_processed.csv
+      md5: dd5bf2313048fb198508e16159e650c2
+      size: 394147
+  training:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/bikes_processed.csv
+      md5: dd5bf2313048fb198508e16159e650c2
+      size: 394147
