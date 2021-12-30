@@ -72,4 +72,4 @@ target/
 *.csv
 *.pkl
 *.png
-*.txt
+report.txt
