@@ -67,3 +67,7 @@ target/
 
 # ipynb checkpoints
 .ipynb_checkpoints
+
+*.json
+*.png
+report.txt
