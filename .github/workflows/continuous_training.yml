@@ -26,11 +26,11 @@ jobs:
           source venv/bin/activate
           pip install -r src/requirements.txt
           export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
-          dvc pull models/model.pkl -r model-track
+          dvc pull models/model.pkl.dvc -r model-track
           dvc unprotect models/model.pkl
           dvc repro -f
           echo "Training Completed!"
-          dvc add models/model.pkl.dvc -r model-track --to-remote
+          dvc add models/model.pkl -r model-track --to-remote
           dvc push models/model.pkl -r model-track
       - name: Commit .dvc file changes
         run: |
