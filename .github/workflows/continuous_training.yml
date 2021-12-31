@@ -24,9 +24,9 @@ jobs:
           pip install --upgrade virtualenv
           virtualenv -p python3 venv
           source venv/bin/activate
-          pip install src/requirements.txt
+          pip install -r src/requirements.txt
           export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
-          dvc pull models/model.pkl 
+          dvc pull models/model.pkl -r model-track
           dvc unprotect models/model.pkl
           dvc repro -f
           echo "Training Completed!"
