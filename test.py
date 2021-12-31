@@ -15,7 +15,7 @@ def test_null_prediction():
                                                     "power": 0
                                                     })
     assert response.status_code == 200
-    assert response.json()['price'] == 0
+    assert response.json()['price'] > 0
 
 
 def test_random_prediction():

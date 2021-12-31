@@ -20,5 +20,5 @@ jobs:
       - name: Test API
         run: |
           export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
-          dvc pull models/model.pkl -r model-track
+          dvc pull models/model.pkl.dvc -r model-track
           pytest test.py
