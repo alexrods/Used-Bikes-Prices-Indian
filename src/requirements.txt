@@ -3,4 +3,4 @@ scikit-learn==1.0
 matplotlib==3.4.3
 seaborn==0.11.2
 dvc==2.8.1
-dvc[gc]
+'dvc[gc]'
