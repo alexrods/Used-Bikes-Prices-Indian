@@ -23,7 +23,7 @@ jobs:
         run: |
           pip install virtualenv
           virtualenv env
-          source venv/Scripts/activate
+          source venv/bin/activate
           pip install src/requirements.txt
           export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
           dvc pull models/model.pkl 
