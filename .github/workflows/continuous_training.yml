@@ -21,8 +21,8 @@ jobs:
         env:
           SERVICEACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         run: |
-          pip install virtualenv
-          virtualenv env
+          pip install --upgrade virtualenv
+          virtualenv -p python3 venv
           source venv/bin/activate
           pip install src/requirements.txt
           export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
