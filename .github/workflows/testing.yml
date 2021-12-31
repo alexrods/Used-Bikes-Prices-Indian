@@ -9,15 +9,16 @@ jobs:
       - name: Checkot the repo
         uses: actions/checkout@v2
       - name: Creating and activating virtualenv
-        run:
+        run: |
           pip install virtualenv
           virtualenv venv
-          source venv/bin/activate
+          source venv/Scripts/activate
       - name: Installing dependencies
-        run: pip install dvc[gs]
+        run: |
+             pip install dvc[gs]
              pip install -r requirements_test.txt
       - name: Test API
-        run:
+        run: |
           export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
           dvc pull models/model.pkl -r model-track
           pytest test.py
