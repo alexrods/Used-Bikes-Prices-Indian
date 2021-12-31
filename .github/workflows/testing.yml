@@ -10,9 +10,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Creating and activating virtualenv
         run: |
-          pip install virtualenv
-          virtualenv venv
-          source venv/Scripts/activate
+          pip install --upgrade virtualenv
+          virtualenv -p python3 venv
+          source venv/bin/activate
       - name: Installing dependencies
         run: |
              pip install dvc[gs]
