@@ -13,7 +13,7 @@ on:
         default: running CT
 jobs:
   continuous-trainig:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
           dvc repro -f
           echo "Training Completed!"
           dvc add models/model.pkl -r model-track --to-remote
-          dvc push models/model.pkl.dvc -r model-track
+          dvc push models/model.pkl -r model-track
       - name: Commit .dvc file changes
         run: |
           git config --local user.email "alexrodsanch@gmail.com"
