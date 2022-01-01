@@ -23,8 +23,8 @@ logging.info('Fetching data...')
 
 #bikes_data_path = api.read('data/raw/bikes.csv', remote='dataset-track')
 with api.open('data/raw/bikes.csv.dvc', remote='dataset-track') as bikes_data_path:
-
-    bikes = pd.read_csv(StringIO(bikes_data_path))
+    bikes = pd.read_csv(bikes_data_path)
+    #bikes = pd.read_csv(StringIO(bikes_data_path))
 
     bikes.dropna(inplace=True)
     #i'll ignore bikes with price equals 0 
