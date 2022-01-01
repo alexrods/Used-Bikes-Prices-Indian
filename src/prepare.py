@@ -1,3 +1,4 @@
+from os import sep
 import re
 import sys
 import logging
@@ -18,10 +19,9 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
-
 logging.info('Fetching data...')
 
-bikes_data_path = api.read('data/raw/bikes.csv', remote='dataset-track')
+bikes_data_path = api.open('data/raw/bikes.csv', remote='dataset-track')
 
 bikes = pd.read_csv(StringIO(bikes_data_path))
 
