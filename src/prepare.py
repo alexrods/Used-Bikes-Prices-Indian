@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 logging.info('Fetching data...')
 
 #bikes_data_path = api.read('data/raw/bikes.csv', remote='dataset-track')
-with api.read('data/raw/bikes.csv.dvc', remote='dataset-track') as bikes_data_path:
+with api.read('gs://bikes-dataset-tracker/dataset/4c/581aa7051b749ad65467947c1aae90', remote='dataset-track') as bikes_data_path:
     bikes = pd.read_csv(StringIO(bikes_data_path))
     #bikes = pd.read_csv(StringIO(bikes_data_path))
 
