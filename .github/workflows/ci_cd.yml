@@ -32,4 +32,4 @@ jobs:
           sudo -u $USER docker push $REGISTRY_NAME:$GITHUB_SHA
       - name: Deploy to Cloud Run
         run: |
-          gcloud run services update $SERVICE_NAME --region=$REGION --image:$REGISTRY_NAME:$GITHUB_SHA
+          gcloud run services update $SERVICE_NAME --region=$REGION --image=$REGISTRY_NAME:$GITHUB_SHA
