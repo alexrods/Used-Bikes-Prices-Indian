@@ -2,7 +2,7 @@ name: Continuous training
 on:
   push:
     branches:
-      - continuous_training
+      -  fix_problems_reading_dvc_files
   schedule:
     - cron: '0 */6 * * *'
   workflow_dispatch:
