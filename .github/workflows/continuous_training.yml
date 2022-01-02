@@ -1,0 +1,52 @@
+name: Continuous training
+on:
+  push:
+    branches:
+      - continuous_training
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: Why run this?
+        required: false
+        default: running CT
+jobs:
+  continuous-trainig:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Train model
+        env:
+          SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+        run: |
+          pip install --upgrade virtualenv
+          virtualenv -p python3 venv
+          source venv/bin/activate
+          pip install -r src/requirements.txt
+          export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
+          dvc pull models/model.pkl.dvc -r model-track
+          dvc unprotect models/model.pkl
+          dvc repro -f 
+          echo "Training Completed"
+          dvc add models/model.pkl -r model-track --to-remote
+          dvc push models/model.pkl.dvc -r model-track
+      - name: Commit .dvc file changes
+        run: |
+          git config --local user.email "alexrodsanch@gmail.com"
+          git config --local user.name "Robot de github"
+          git add models/model.pkl.dvc
+          git commit -m "Update model"
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+      - uses: iterative/setup-cml@v1
+      - name: Push metrics
+        env:
+          REPO_TOKEN: $${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cat report.txt >> report.md
+          cml-publish prediction_behavior.png --md >> report.md
+          cml-send-comment report.md
