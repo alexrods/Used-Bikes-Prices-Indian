@@ -26,7 +26,7 @@ jobs:
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
           project_id: ${{ secrets.PROJECT_ID }}
       - name: Build and Push
-        runs: |
+        run: |
           docker build . -t $REGISTRY_NAME:$GITHUB_SHA
           gcloud auth configure-docker -q
           sudo -u $USER docker push $REGISTRY_NAME:$GITHUB_SHA
