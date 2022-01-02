@@ -40,12 +40,12 @@ jobs:
           git commit -m "Update model"
       - uses: ad-m/github-push-action@master
         with:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
       - uses: iterative/setup-cml@v1
       - name: Push metrics
         env:
-          GITHUB_TOKEN: $${{ github.token }}
+          GITHUB_TOKEN: $${{ secrets.GITHUB_TOKEN }}
         run: |
           cat report.txt >> report.md
           cml-publish prediction_behavior.png --md >> report.md
