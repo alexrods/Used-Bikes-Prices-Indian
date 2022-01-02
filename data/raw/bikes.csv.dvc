@@ -1,0 +1,4 @@
+outs:
+- md5: 4c581aa7051b749ad65467947c1aae90
+  size: 727407
+  path: bikes.csv

@@ -62,12 +62,16 @@ target/
 .python-version
 
 # exclude data from source control by default
-/data/
-/credentials/
+#/data/
 
 # ipynb checkpoints
 .ipynb_checkpoints
 
+
+# JSON, CSV, PKL Files
 *.json
-*.png
+*.csv
+*.pkl
 report.txt
+*.png
+
