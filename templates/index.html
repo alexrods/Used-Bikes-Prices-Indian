@@ -1,0 +1,348 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Bikes Price Prediction</title>
+
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+
+
+</head>
+
+<body>
+
+    <!-- As a heading -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">BIKE PRICE</a>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br>
+
+
+    <div class="container">
+
+
+
+        <form action="v1/prediction" method="post">
+        <!-- <form method="post"></form> -->
+
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Brand Name -->
+                        <h5 class="card-title">Brand Name</h5>
+                        <select name="Brand_name" id="Brand_name" required="required">
+                            <option value="None">None</option>
+                            <option value="Bajaj">Bajaj</option>
+                            <option value="Benelli">Benelli</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Ducati">Ducati</option>
+                            <option value="Harley Davidson">Harley Davidson</option>
+                            <option value="Hero">Hero</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Husqvarna">Husqvarna</option>
+                            <option value="Hyosung">Hyosung</option>
+                            <option value="Jawa">Jawa</option>
+                            <option value="Kawasaki">Kawasaki</option>
+                            <option value="KTM">KTM</option>
+                            <option value="Mahindra">Mahindra</option>
+                            <option value="Royal Enfield">Royal Enfield</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Triumph">Triumph</option>
+                            <option value="TVS">TVS</option>
+                            <option value="Yamaha">Yamaha</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Model Name</h5>
+                        <!-- Model Name -->
+                        <select name="Model_name" id="Model_name" required="required">
+                            <option value="None">None</option>
+                            <option value="Pulsar">Pulsar</option>
+                            <option value="Classic">Classic</option>
+                            <option value="Thunderbird">Thunderbird</option>
+                            <option value="Apache">Apache</option>
+                            <option value="Avenger">Avenger</option>
+                            <option value="Duke">Duke</option>
+                            <option value="CB">CB</option>
+                            <option value="Bullet">Bullet</option>
+                            <option value="YZF-R15">YZF-R15</option>
+                            <option value="Duke">Duke</option>
+                            <option value="RC">RC</option>
+                            <option value="Discover">Discover</option>
+                            <option value="Passion">Passion</option>
+                            <option value="Gixxer">Gixxer</option>
+                            <option value="Splendor">Splendor</option>
+                            <option value="Dominar">Dominar</option>
+                            <option value="V15">V15</option>
+                            <option value="Street">Street</option>
+                            <option value="FZ">FZ</option>
+                            <option value="CBR">CBR</option>
+                            <option value="FZS">FZs</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Platina">Platina</option>
+                            <option value="Himalayan">Himalayan</option>
+                            <option value="Karizma">Karizma</option>
+                            <option value="Xtreme">Xtreme</option>
+                            <option value="Fazer">Fazer</option>
+                            <option value="Intruder">Intruder</option>
+                            <option value="HF">HF</option>
+                            <option value="Glamour">Glamour</option>
+                            <option value="FZ25">FZ25</option>
+                            <option value="CT">CT</option>
+                            <option value="CBZ">CBZ</option>
+                            <option value="TNT">TNT</option>
+                            <option value="FZ16">FZ16</option>
+                            <option value="Super">Super</option>
+                            <option value="Electra">Electra</option>
+                            <option value="Ninja">Ninja</option>
+                            <option value="CD">CD</option>
+                            <option value="CBF">CBF</option>
+                            <option value="Continental">Continental</option>
+                            <option value="Dream">Dream</option>
+                            <option value="Hunk">Hunk</option>
+                            <option value="Forty">Forty</option>
+                            <option value="Star">Star</option>
+                            <option value="Interceptor">Interceptor</option>
+                            <option value="GT250R">GT250R</option>
+                            <option value="Ignitor">Ignitor</option>
+                            <option value="V12">V12</option>
+                            <option value="Centuro">Centuro</option>
+                            <option value="Livo">Livo</option>
+                            <option value="Sport">Sport</option>
+                            <option value="FZS-FI">FZS-FI</option>
+                            <option value="Aquila">Aquila</option>
+                            <option value="MT-15">MT-15</option>
+                            <option value="Xpulse">Xpulse</option>
+                            <option value="Iron">Iron</option>
+                            <option value="Z650">Z650</option>
+                            <option value="YZF-R3">YZF-R3</option>
+                            <option value="Victor">Victor</option>
+                            <option value="Radeon">Radeon</option>
+                            <option value="SZR">SZR</option>
+                            <option value="Perak">Perak</option>
+                            <option value="GT650R">GT650R</option>
+                            <option value="302R">302R</option>
+                            <option value="Monster">Monster</option>
+                            <option value="Mojo">Mojo</option>
+                            <option value="X-Blade">X-Blade</option>
+                            <option value="Bonneville">Bonneville</option>
+                            <option value="G">G</option>
+                            <option value="Achiever">Achiever</option>
+                            <option value="SP125">SP125</option>
+                            <option value="Machismo">Machismo</option>
+                            <option value="Meteor">Meteor</option>
+                            <option value="FZ-FI">FZ-FI</option>
+                            <option value="Slingshot">Slingshot</option>
+                            <option value="SZ-RR">SZ-RR</option>
+                            <option value="Svartpilen">Svartpilen</option>
+                            <option value="XCD">XCD</option>
+                            <option value="Hness">Hness</option>
+                            <option value="ER-6n">ER-6n</option>
+                            <option value="Imperiale">Imperiale</option>
+                            <option value="Saluto">Saluto</option>
+                            <option value="SZ">SZ</option>
+                            <option value="Vitpilen">Vitpilen</option>
+                            <option value="390">390</option>
+                            <option value="Z800">Z800</option>
+                            <option value="Gladiator">Gladiator</option>
+                            <option value="Z1000">Z1000</option>
+                            <option value="Tiger">Tiger</option>
+                            <option value="Hayate">Hayate</option>
+                            <option value="RX">RX</option>
+                            <option value="1200">1200</option>
+                            <option value="Panigale">Panigale</option>
+                            <option value="GSX-R">GSX-R</option>
+                            <option value="Discover150">Discover150</option>
+                            <option value="Flame">Flame</option>
+                            <option value="Leoncino">Leoncino</option>
+                            <option value="Fazer25">Fazer25</option>
+                            <option value="CB300R">CB300R</option>
+                            <option value="Crux">Crux</option>
+                            <option value="New">New</option>
+                            <option value="CBR1000RR">CBR1000RR</option>
+                            <option value="Boxer">Boxer</option>
+                            <option value="SS">SS</option>
+                            <option value="4S">4S</option>
+                            <option value="CT110">CT110</option>
+                            <option value="Z900">Z900</option>
+                            <option value="SZX">SZX</option>
+                            <option value="S">S</option>
+                            <option value="CD110">CD110</option>
+                            <option value="MAX">MAX</option>
+                            <option value="Speed">Spedd</option>
+                            <option value="Thruxton">Thruxton</option>
+                            <option value="Multistrada">Multistrada</option>
+                            <option value="FZS25">FZS25</option>
+                            <option value="Z250">Z250</option>
+                            <option value="Phoenix">Phoenix</option>
+                            <option value="XDiavel">XDiavel</option>
+                            <option value="Impulse">Impulse</option>
+                            <option value="Inazuma">Inazuma</option>
+                            <option value="Discover150S">Discover150S</option>
+                            <option value="Sportster">Sportster</option>
+                            <option value="CBR650F">CBR650F</option>
+                            <option value="Fiero">Fiero</option>
+                            <option value="GT">GT</option>
+                            <option value="Scrambler">Scrambler</option>
+                            <option value="Vulcan">Vulcan</option>
+                            <option value="VT1300CX">VT1300CX</option>
+                            <option value="YZF-R1M">YZF-R1M</option>
+                            <option value="XG750">XG750</option>
+                            <option value="YBR">YBR</option>
+                            <option value="GS">GS</option>
+                            <option value="TRK">TRK</option>
+                            <option value="GSX-S750">GSX-S750</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+
+
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Motor Size</h5>
+                            <!-- Motor Size -->
+                            <input type="text" name="Motor_size" id="Motor_size" required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Model Year</h5>
+                            <!-- Model Year -->
+                            <input type="text" name="Model_year" id="Model_year" required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Kms Driven</h5>
+                            <!-- Model Year -->
+                            <input type="text" name="Model_year" id="Model_year">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Mileage</h5>
+                            <!-- Airline -->
+                            <input type="text" name="Mileage" id="Mileage"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Owners</h5>
+                            <!-- Owners -->
+                            <select name="Owners" required="required">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Power</h5>
+                            <!-- Airline -->
+                            <input type="text" name="Power" id="Power"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+            <!-- Submit -->
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+
+        <br>
+        <br>
+        <h3>{{ prediction_text }}</h3>
+
+        <br>
+        <br>
+        <p>©2020 Amar Mandal</p>
+
+    </div>
+
+
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
