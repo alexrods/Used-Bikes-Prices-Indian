@@ -33,6 +33,7 @@ bikes.reset_index(drop=True, inplace=True)
 bikes_names = bikes['model_name']
 # I´ll split the column "model_name" in blankspace   
 bikes_names = bikes_names.str.replace("Royal Enfield", "Royal-Enfield")
+bikes_names = bikes_names.str.replace("BenelliImperiale", "Benelli Imperiale")
 bikes_names = bikes_names.str.split(pat=" ")
 
 # i´ll create a column with "brand_name" feature 
@@ -48,14 +49,20 @@ patron_location = re.compile('(\d{3,})')
 motor_size = []
 model_name = []
 for model in model_dirty:
-    model_str = " ".join(model[:6])   
-    model_name.append(model_str) 
+    model_str = " ".join(model[:6])
+    if model[0] == " ":   
+        model_name.append(model[1])
+    else:
+        model_name.append(model[0])
+
     try:
         size = patron_location.search(model_str)
         motor_size.append(float(size.group(1)))
     except:
         motor_size.append(np.nan)
 model_name_col = pd.DataFrame(model_name, columns=["model_name"])
+model_name_col.replace("FZs", "FZS", inplace=True)
+model_name_col.replace("YZFR15", "YZF-R15", inplace=True)
 motor_size_col = pd.DataFrame(motor_size, columns=["motor_size"])
 model_name_col.replace("\d{3,}cc", "", regex=True, inplace=True)
 
