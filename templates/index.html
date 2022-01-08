@@ -12,7 +12,8 @@
 
 
     <!-- css -->
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/styles.css", crossorigin="anonymous">
+
 
 
 </head>
@@ -23,7 +24,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">BIKE PRICE</a>
+                <a class="navbar-brand" href="/">BIKE'S PRICES PREDICTOR</a>
             </div>
         </div>
     </nav>
@@ -35,7 +36,7 @@
 
 
 
-        <form action="v1/prediction" method="post">
+        <form action="/prediction" method="post">
         <!-- <form method="post"></form> -->
 
 
@@ -262,7 +263,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Kms Driven</h5>
                             <!-- Kms Driven -->
-                            <input type="text" name="kms_driven" id="kms_driven">
+                            <input type="text" name="kms_driven" id="kms_driven", required="required"/>
                         </div>
                     </div>
                 </div>
@@ -271,7 +272,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Mileage</h5>
                             <!-- Mileage -->
-                            <input type="text" name="mileage" id="mileage"/>
+                            <input type="text" name="mileage" id="mileage", required="required"/>
                         </div>
                     </div>
                 </div>
@@ -304,7 +305,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Power</h5>
                             <!-- Power -->
-                            <input type="text" name="power" id="power"/>
+                            <input type="text" name="power" id="power", required="required"/>
                         </div>
                     </div>
                 </div>
@@ -321,11 +322,11 @@
 
         <br>
         <br>
-        <h3>{{ prediction_text }}</h3>
+        <h3>Bike's {{ prediction_text }} $USD</h3>
 
         <br>
         <br>
-        <p>©2020 Amar Mandal</p>
+        <p>©2020 Alexrods</p>
 
     </div>
 
