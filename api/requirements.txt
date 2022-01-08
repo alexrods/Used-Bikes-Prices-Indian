@@ -4,3 +4,5 @@ scikit-learn==1.0
 pandas==1.1.5
 gunicorn==20.1.0
 joblib==1.1.0
+Jinja2==3.0.3
+aiofiles==0.8.0
