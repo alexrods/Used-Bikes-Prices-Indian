@@ -4,7 +4,7 @@ from api.main import app
 client = TestClient(app)
 
 def test_null_prediction():
-    response = client.post('/v1/prediction', json={
+    response = client.post('/prediction', json={
                                                     "brand_name": 0,
                                                     "model_name": 0,
                                                     "motor_size": 0,
@@ -19,7 +19,7 @@ def test_null_prediction():
 
 
 def test_random_prediction():
-    response = client.post('/v1/prediction', json={
+    response = client.post('/prediction', json={
                                                     "brand_name": "Bajaj",
                                                     "model_name": "Discover",
                                                     "motor_size": 100.0,
