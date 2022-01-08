@@ -7,6 +7,6 @@ model = get_model()
 def get_prediction(request: dict) -> float:
     data_to_predict = transform_to_df(request)
     prediction = model.predict(data_to_predict)[0]
-    return max(0, round(prediction, 2))
+    return max(0, round(prediction*0.013, 2))
 
     
