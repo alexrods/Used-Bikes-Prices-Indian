@@ -4,7 +4,7 @@
 Deployed in GCP https://deployment-bikes-prices-ltzibgpm4a-uc.a.run.app
 
 ### Running app
-This app use swaggerui as frontend
+This app use [SwaggerUI](https://swagger.io/tools/swagger-ui/) as frontend
 ![](https://drive.google.com/uc?id=12j0ZTwBnAx7hNNzsCd0ituVcUg6DJ5rD)
 
 #### Request 
