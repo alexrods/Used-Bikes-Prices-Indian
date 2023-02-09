@@ -1,8 +1,6 @@
 # Predictor Motorcycles Prices
 *Data analysis of motorcycles prices in india, data from kaggle* 
 
-Deployed in GCP https://deployment-bikes-prices-ltzibgpm4a-uc.a.run.app
-
 ## Running app
 This app use [SwaggerUI](https://swagger.io/tools/swagger-ui/) as frontend
 
